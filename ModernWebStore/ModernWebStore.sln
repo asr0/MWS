@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dominio", "Dominio", "{83D4BAAE-580A-44F1-90DA-991583E9EF36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWS.Dominio", "MWS.Dominio\MWS.Dominio.csproj", "{0B1DE2EC-CDA3-4888-A840-FEE4EE87E6B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{5F8263E6-E193-478D-B5C7-F42A45251895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio.Tests", "Dominio.Tests\Dominio.Tests.csproj", "{8A86DEB4-C05D-4216-B0F2-6FAC9018155C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B1DE2EC-CDA3-4888-A840-FEE4EE87E6B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1DE2EC-CDA3-4888-A840-FEE4EE87E6B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1DE2EC-CDA3-4888-A840-FEE4EE87E6B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1DE2EC-CDA3-4888-A840-FEE4EE87E6B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A86DEB4-C05D-4216-B0F2-6FAC9018155C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A86DEB4-C05D-4216-B0F2-6FAC9018155C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A86DEB4-C05D-4216-B0F2-6FAC9018155C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A86DEB4-C05D-4216-B0F2-6FAC9018155C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B1DE2EC-CDA3-4888-A840-FEE4EE87E6B8} = {83D4BAAE-580A-44F1-90DA-991583E9EF36}
+		{8A86DEB4-C05D-4216-B0F2-6FAC9018155C} = {5F8263E6-E193-478D-B5C7-F42A45251895}
+	EndGlobalSection
+EndGlobal
