@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
 using MWS.Dominio.Enumeradores;
+using MWS.NucleoCompartilhado.Eventos.Contratos;
 
 namespace MWS.Dominio.Entidades
 {
@@ -50,11 +51,13 @@ namespace MWS.Dominio.Entidades
 
         public void AdicionarItem(ItemPedido item)
         {
+            
+
             if (item == null)
                 throw new Exception("Item não pode ser nulo");
 
-            if (item.Preco < 0)
-                throw new Exception("preço do item não pode ser negativo");
+            if (item.Preco <= 0)
+                new NotificacaoDominio("AssertArgumentLength", "Preço deve ser maior que zero");
 
             if (item.Quantidade <= 0)
                 throw new Exception("A quantidade deve ser acima de zero");
