@@ -42,6 +42,8 @@
     <Compile Include="Enumeradores\EPedidoStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scope\CategoriaScope.cs" />
+    <Compile Include="Scope\CategoriaScope.cs" />
+    <Compile Include="Scope\UsuarioScope.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MWS.NucleoCompartilhado\MWS.NucleoCompartilhado.csproj">

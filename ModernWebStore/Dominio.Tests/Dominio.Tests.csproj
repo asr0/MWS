@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8A86DEB4-C05D-4216-B0F2-6FAC9018155C}</ProjectGuid>
+    <ProjectGuid>{C38867A8-5749-4963-93B2-2B8D89887CC2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dominio.Tests</RootNamespace>
@@ -53,6 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Scopes\CategoriaScopeTests.cs" />
+    <Compile Include="Scopes\UsuarioScopeTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
