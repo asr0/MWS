@@ -17,6 +17,6 @@ namespace MWS.NucleoCompartilhado.Eventos.Contratos
 
         public string Chave { get; private set; }
         public string Valor { get; private set; }
-        public DateTime DataOcorrido { get;  set; }
+        public DateTime DataOcorrido { get; set; }
     }
 }

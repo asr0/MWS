@@ -1,21 +1,24 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.AccessControl;
 using MWS.Dominio.Enumeradores;
 using MWS.NucleoCompartilhado.Eventos.Contratos;
+
+#endregion
 
 namespace MWS.Dominio.Entidades
 {
     public class Pedido
     {
-      private IList<ItemPedido> _itensPedido;
+        private IList<ItemPedido> _itensPedido;
 
         public Pedido(IList<ItemPedido> itensPedido, int usuarioId)
         {
             Data = DateTime.Now;
             _itensPedido = new List<ItemPedido>();
-            itensPedido.ToList().ForEach(x=> AdicionarItem(x));
+            itensPedido.ToList().ForEach(x => AdicionarItem(x));
             UsuarioId = usuarioId;
             Status = EPedidoStatus.Criado;
         }
@@ -37,7 +40,7 @@ namespace MWS.Dominio.Entidades
             get
             {
                 decimal total = 0;
-                for (int i = 0; i < _itensPedido.Count; i++)
+                for (var i = 0; i < _itensPedido.Count; i++)
                 {
                     total += _itensPedido[i].Preco*_itensPedido[i].Quantidade;
                 }
@@ -51,8 +54,6 @@ namespace MWS.Dominio.Entidades
 
         public void AdicionarItem(ItemPedido item)
         {
-            
-
             if (item == null)
                 throw new Exception("Item não pode ser nulo");
 

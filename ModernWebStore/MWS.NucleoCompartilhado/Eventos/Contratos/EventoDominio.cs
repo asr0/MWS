@@ -6,7 +6,7 @@ using System;
 
 namespace MWS.NucleoCompartilhado.Eventos.Contratos
 {
-    public static class EventoDominio 
+    public static class EventoDominio
     {
         public static IContainer Container { get; set; }
 
