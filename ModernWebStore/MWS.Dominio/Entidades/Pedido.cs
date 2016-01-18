@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MWS.Dominio.Enumeradores;
+using MWS.Dominio.Scope;
 using MWS.NucleoCompartilhado.Eventos.Contratos;
 
 #endregion
@@ -26,7 +27,7 @@ namespace MWS.Dominio.Entidades
         public int Id { get; private set; }
         public DateTime Data { get; private set; }
 
-        public IEnumerable<ItemPedido> ItensPedido
+        public ICollection<ItemPedido> ItensPedido
         {
             get { return _itensPedido; }
             private set { _itensPedido = new List<ItemPedido>(value); }
@@ -54,15 +55,37 @@ namespace MWS.Dominio.Entidades
 
         public void AdicionarItem(ItemPedido item)
         {
-            if (item == null)
-                throw new Exception("Item não pode ser nulo");
-
-            if (item.Preco <= 0)
-                new NotificacaoDominio("AssertArgumentLength", "Preço deve ser maior que zero");
-
-            if (item.Quantidade <= 0)
-                throw new Exception("A quantidade deve ser acima de zero");
-            _itensPedido.Add(item);
+            if (item.Registrar())
+            {
+                _itensPedido.Add(item);
+            }
         }
+
+
+        public void Registrar()
+        {
+            if (!this.RegistrarPedidoValido(UsuarioId))
+            return;
+                
+            
+        }
+        public void MarcarComoPago()
+        {
+            this.Status = EPedidoStatus.Pago;
+        }
+
+        public void MarcarComoEntregue()
+        {
+            this.Status = EPedidoStatus.Entregue;
+        }
+
+        public void MarcarComoCacelado()
+        {
+
+            this.Status = EPedidoStatus.Cancelado;
+        }
+
+
+
     }
 }

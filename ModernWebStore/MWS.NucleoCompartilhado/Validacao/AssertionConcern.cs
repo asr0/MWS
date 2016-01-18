@@ -92,7 +92,7 @@ namespace MWS.NucleoCompartilhado.Validacao
                 : null;
         }
 
-        public static NotificacaoDominio AssertIsGreaterOrEqualThan(int value1, int value2, string message)
+        public static NotificacaoDominio AssertIsGreaterOrEqualThan(decimal value1, decimal value2, string message)
         {
             return (!(value1 >= value2))
                 ? new NotificacaoDominio("AssertArgumentTrue", message)

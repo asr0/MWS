@@ -62,6 +62,10 @@
       <Project>{0b1de2ec-cda3-4888-a840-fee4ee87e6b8}</Project>
       <Name>MWS.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MWS.NucleoCompartilhado\MWS.NucleoCompartilhado.csproj">
+      <Project>{30eeffc0-bb3e-45aa-924c-6e83b7082948}</Project>
+      <Name>MWS.NucleoCompartilhado</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
