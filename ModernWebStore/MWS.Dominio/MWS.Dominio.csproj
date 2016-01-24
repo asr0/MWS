@@ -46,6 +46,9 @@
     <Compile Include="Scope\PedidoScope.cs" />
     <Compile Include="Scope\ProdutoScope.cs" />
     <Compile Include="Scope\UsuarioScope.cs" />
+    <Compile Include="Specs\PedidoSpecs.cs" />
+    <Compile Include="Specs\ProdutosSpecs.cs" />
+    <Compile Include="Specs\UserSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MWS.NucleoCompartilhado\MWS.NucleoCompartilhado.csproj">
@@ -53,9 +56,7 @@
       <Name>MWS.NucleoCompartilhado</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\UsuarioCommands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

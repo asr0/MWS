@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Scopes\CategoriaScopeTests.cs" />
     <Compile Include="Scopes\UsuarioScopeTests.cs" />
+    <Compile Include="Specs\UsuarioSpecsTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
