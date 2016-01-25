@@ -5,15 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
 
-namespace MWS.Dominio.Repository
+namespace MWS.Dominio.Services
 {
-    interface IUsuarioRepository
+    interface IUsuarioApplicationService
     {
-
 
         Usuario Autenticar(string email, string senha);
         void Registrar(Usuario usuario);
-       
-
+        Usuario GetByEmail(string email);
     }
 }

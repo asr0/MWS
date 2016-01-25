@@ -50,6 +50,10 @@
     <Compile Include="Scope\PedidoScope.cs" />
     <Compile Include="Scope\ProdutoScope.cs" />
     <Compile Include="Scope\UsuarioScope.cs" />
+    <Compile Include="Services\ICategoriaApplicationService.cs" />
+    <Compile Include="Services\IPedidoApplicationService.cs" />
+    <Compile Include="Services\IProdutoApplicationService.cs" />
+    <Compile Include="Services\IUsuarioApplicationService.cs" />
     <Compile Include="Specs\PedidoSpecs.cs" />
     <Compile Include="Specs\ProdutosSpecs.cs" />
     <Compile Include="Specs\UserSpecs.cs" />
