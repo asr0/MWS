@@ -1,13 +1,13 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
+
+#endregion
 
 namespace MWS.Dominio.Services
 {
-    interface ICategoriaApplicationService
+    internal interface ICategoriaApplicationService
     {
         List<Categoria> GetAll();
         List<Categoria> GetinPadding(int skip, int take);
@@ -17,6 +17,5 @@ namespace MWS.Dominio.Services
         void Update(Categoria categoria);
         void Delete(Categoria categoria);
         void Delete(int id);
-
     }
 }

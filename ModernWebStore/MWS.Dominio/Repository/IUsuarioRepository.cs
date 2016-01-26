@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region
+
 using MWS.Dominio.Entidades;
+
+#endregion
 
 namespace MWS.Dominio.Repository
 {
-    interface IUsuarioRepository
+    public interface IUsuarioRepository
     {
-
-
         Usuario Autenticar(string email, string senha);
         void Registrar(Usuario usuario);
-       
-
     }
 }

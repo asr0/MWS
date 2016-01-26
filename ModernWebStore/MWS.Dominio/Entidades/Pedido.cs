@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using MWS.Dominio.Enumeradores;
 using MWS.Dominio.Scope;
-using MWS.NucleoCompartilhado.Eventos.Contratos;
 
 #endregion
 
@@ -34,7 +33,7 @@ namespace MWS.Dominio.Entidades
         }
 
         public Usuario Usuario { get; private set; }
-        public int UsuarioId { get; private set; }
+        public int UsuarioId { get; }
 
         public Decimal Total
         {
@@ -61,31 +60,25 @@ namespace MWS.Dominio.Entidades
             }
         }
 
-
         public void Registrar()
         {
             if (!this.RegistrarPedidoValido(UsuarioId))
-            return;
-                
-            
+                return;
         }
+
         public void MarcarComoPago()
         {
-            this.Status = EPedidoStatus.Pago;
+            Status = EPedidoStatus.Pago;
         }
 
         public void MarcarComoEntregue()
         {
-            this.Status = EPedidoStatus.Entregue;
+            Status = EPedidoStatus.Entregue;
         }
 
         public void MarcarComoCacelado()
         {
-
-            this.Status = EPedidoStatus.Cancelado;
+            Status = EPedidoStatus.Cancelado;
         }
-
-
-
     }
 }

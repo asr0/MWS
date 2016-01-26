@@ -1,4 +1,8 @@
-﻿using MWS.Dominio.Scope;
+﻿#region
+
+using MWS.Dominio.Scope;
+
+#endregion
 
 namespace MWS.Dominio.Entidades
 {
@@ -19,17 +23,14 @@ namespace MWS.Dominio.Entidades
 
         public void AdicionarProduto(Produto produto, int quantidade, decimal preco)
         {
-            if (!this.AdicionarItemProdutoValido(produto,quantidade, preco))
+            if (!this.AdicionarItemProdutoValido(produto, quantidade, preco))
                 return;
 
-            this.ProdutoId = produto.Id;
-            this.Produto = produto;
-            this.Quantidade = quantidade;
-            this.Preco = preco;
-            this.Produto.AtualizarQuantidade(this.Produto.Quantidade - quantidade);
+            ProdutoId = produto.Id;
+            Produto = produto;
+            Quantidade = quantidade;
+            Preco = preco;
+            Produto.AtualizarQuantidade(Produto.Quantidade - quantidade);
         }
-
-
-    
-}
+    }
 }

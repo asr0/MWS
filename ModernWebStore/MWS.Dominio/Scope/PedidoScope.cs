@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿#region
+
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
 using MWS.NucleoCompartilhado.Validacao;
+
+#endregion
 
 namespace MWS.Dominio.Scope
 {

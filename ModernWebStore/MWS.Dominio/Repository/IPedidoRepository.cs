@@ -1,13 +1,13 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
+
+#endregion
 
 namespace MWS.Dominio.Repository
 {
-   public interface IPedidoRepository
+    public interface IPedidoRepository
     {
         List<Pedido> GetAllPorUsuario(string email, int skip, int take);
         List<Pedido> GetAllPorUsuario(string email);
@@ -21,6 +21,5 @@ namespace MWS.Dominio.Repository
         void Update(Pedido pedido);
         void Delete(Pedido pedido);
         void Delete(int id);
-
     }
 }

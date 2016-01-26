@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿#region
+
+using System;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
+
+#endregion
 
 namespace MWS.Dominio.Specs
 {
@@ -19,6 +19,5 @@ namespace MWS.Dominio.Specs
         {
             return x => x.Quantidade < 1;
         }
-
     }
 }

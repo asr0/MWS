@@ -1,13 +1,13 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
+
+#endregion
 
 namespace MWS.Dominio.Services
 {
-    interface IProdutoApplicationService
+    internal interface IProdutoApplicationService
     {
         List<Produto> GetAll();
         List<Produto> GetAll(int skip, int take);

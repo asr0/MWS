@@ -1,13 +1,13 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
+
+#endregion
 
 namespace MWS.Dominio.Services
 {
-    interface IPedidoApplicationService
+    internal interface IPedidoApplicationService
     {
         List<Pedido> GetAllPorUsuario(string email, int skip, int take);
         List<Pedido> GetAllPorUsuario(string email);
@@ -21,6 +21,5 @@ namespace MWS.Dominio.Services
         void Pagar(int id, string email);
         void Entregar(int id, string email);
         void Cancelar(int id, string email);
-
     }
 }

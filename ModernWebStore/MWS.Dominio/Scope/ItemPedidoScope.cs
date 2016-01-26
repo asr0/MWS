@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region
+
 using MWS.Dominio.Entidades;
 using MWS.NucleoCompartilhado.Validacao;
+
+#endregion
 
 namespace MWS.Dominio.Scope
 {
@@ -19,14 +18,15 @@ namespace MWS.Dominio.Scope
                 );
         }
 
-        public static bool AdicionarItemProdutoValido(this ItemPedido itemPedido, Produto produto, int quantidade, decimal preco)
+        public static bool AdicionarItemProdutoValido(this ItemPedido itemPedido, Produto produto, int quantidade,
+            decimal preco)
         {
             return AssertionConcern.IsSatisfiedBy(
-                AssertionConcern.AssertIsGreaterOrEqualThan(produto.Quantidade - quantidade, 0, "Quantidade de produtos fora de estoque: "+produto.Titulo),
+                AssertionConcern.AssertIsGreaterOrEqualThan(produto.Quantidade - quantidade, 0,
+                    "Quantidade de produtos fora de estoque: " + produto.Titulo),
                 AssertionConcern.AssertIsGreaterOrEqualThan(preco, 0, "O preco não pode ser menor que zero."),
                 AssertionConcern.AssertIsGreaterThan(quantidade, 0, "A quantidade tem que ser maior que zero.")
                 );
         }
-
     }
 }

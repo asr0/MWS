@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿#region
+
+using System;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
 using MWS.Dominio.Enumeradores;
+
+#endregion
 
 namespace MWS.Dominio.Specs
 {
@@ -15,27 +15,30 @@ namespace MWS.Dominio.Specs
         {
             return x => x.Usuario.Email == email && x.Status == EPedidoStatus.Criado;
         }
+
         public static Expression<Func<Pedido, bool>> GetPedidosPagos(string email)
         {
             return x => x.Usuario.Email == email && x.Status == EPedidoStatus.Pago;
         }
+
         public static Expression<Func<Pedido, bool>> GetPedidosEntregues(string email)
         {
             return x => x.Usuario.Email == email && x.Status == EPedidoStatus.Entregue;
         }
+
         public static Expression<Func<Pedido, bool>> GetPedidosCancelados(string email)
         {
             return x => x.Usuario.Email == email && x.Status == EPedidoStatus.Cancelado;
         }
+
         public static Expression<Func<Pedido, bool>> GetPedidosUsuario(string email)
         {
             return x => x.Usuario.Email == email;
         }
-        public static Expression<Func<Pedido, bool>> GetDetatlhesPedido(int id, string email)
+
+        public static Expression<Func<Pedido, bool>> GetDetalhesPedido(int id, string email)
         {
             return x => x.Usuario.Email == email && x.Id == id;
         }
-
-
     }
 }

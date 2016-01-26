@@ -26,7 +26,6 @@ namespace MWS.Dominio.Entidades
         public int CategoriaId { get; private set; }
         public Categoria Categoria { get; private set; }
 
-        
         public void RegistrarProduto()
         {
             this.RegistrarProdutoValido();
@@ -35,29 +34,24 @@ namespace MWS.Dominio.Entidades
         public void AtualizarPreco(decimal preco)
         {
             this.AtualizarPrecoValido(preco);
-            this.Preco = preco;
+            Preco = preco;
         }
 
-        public void AtualizarInformacoes(string titulo,string descricao,int categoria)
+        public void AtualizarInformacoes(string titulo, string descricao, int categoria)
         {
-           if(!this.AtualizarInformacoesValido(titulo, descricao, categoria))
+            if (!this.AtualizarInformacoesValido(titulo, descricao, categoria))
                 return;
-            
-            this.Titulo = titulo;
-            this.Descricao = descricao;
-            this.CategoriaId = categoria;
+
+            Titulo = titulo;
+            Descricao = descricao;
+            CategoriaId = categoria;
         }
 
         public void AtualizarQuantidade(int qtd)
         {
             if (!this.AtualizarQuantidadeValido(qtd))
                 return;
-            this.Quantidade = qtd;
+            Quantidade = qtd;
         }
-
-
     }
-
-
-
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -6,17 +7,19 @@ using MWS.Dominio.Entidades;
 using MWS.Dominio.Specs;
 using MWS.NucleoCompartilhado.Helpers;
 
+#endregion
+
 namespace Dominio.Tests.Specs
 {
     [TestClass]
     public class UsuarioSpecsTest
     {
-        private List<Usuario> _usuarios;
+        private readonly List<Usuario> _usuarios;
 
         public UsuarioSpecsTest()
         {
             _usuarios = new List<Usuario>();
-            _usuarios.Add(new Usuario("contoso@contoso.com",StringHelper.Encriptar("123456"),true));
+            _usuarios.Add(new Usuario("contoso@contoso.com", StringHelper.Encriptar("123456"), true));
             _usuarios.Add(new Usuario("asro@mail.com", StringHelper.Encriptar("123"), true));
         }
 
@@ -27,7 +30,7 @@ namespace Dominio.Tests.Specs
             var exp = UserSpecs.AutenticarUsuario("contoso@contoso.com", StringHelper.Encriptar("123456"));
             var user = _usuarios.AsQueryable().Where(exp).FirstOrDefault();
 
-            Assert.AreNotEqual(null,user);
+            Assert.AreNotEqual(null, user);
         }
 
         [TestMethod]
@@ -39,7 +42,6 @@ namespace Dominio.Tests.Specs
             Assert.AreEqual(null, user);
         }
 
-
         [TestMethod]
         [TestCategory("User Specs -  Autenticar")]
         public void Nao_Deve_Autenticar_Senha_Errada()
@@ -48,7 +50,5 @@ namespace Dominio.Tests.Specs
             var user = _usuarios.AsQueryable().Where(exp).FirstOrDefault();
             Assert.AreEqual(null, user);
         }
-
-
     }
 }
