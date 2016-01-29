@@ -7,15 +7,15 @@ using MWS.Dominio.Entidades;
 
 namespace MWS.Dominio.Services
 {
-    internal interface ICategoriaApplicationService
+    public interface ICategoriaApplicationService
     {
         List<Categoria> GetAll();
-        List<Categoria> GetinPadding(int skip, int take);
+        List<Categoria> GetInPadding(int skip, int take);
         Categoria Get(int id);
-        Categoria Get(Categoria categoria);
-        void Create(Categoria categoria);
-        void Update(Categoria categoria);
+        Categoria Create(Categoria categoria);
+        Categoria Update(Categoria categoria);
         void Delete(Categoria categoria);
         void Delete(int id);
     }
+
 }

@@ -1,15 +1,17 @@
 ﻿#region
 
 using MWS.Dominio.Entidades;
+using MWS.Dominio.Repository;
 
 #endregion
 
 namespace MWS.Dominio.Services
 {
-    internal interface IUsuarioApplicationService
+    public  interface IUsuarioApplicationService
     {
+
         Usuario Autenticar(string email, string senha);
-        void Registrar(Usuario usuario);
+        Usuario Registrar(Usuario usuario);
         Usuario GetByEmail(string email);
     }
 }
