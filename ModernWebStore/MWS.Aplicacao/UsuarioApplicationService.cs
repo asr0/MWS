@@ -14,7 +14,7 @@ namespace MWS.Aplicacao
     {
         private IUsuarioRepository _repository;
 
-        public UsuarioApplicationService(IUsuarioRepository repository,IUnitOfWork unitOfWork):base(unitOfWork)
+        public UsuarioApplicationService(IUsuarioRepository repository, IUnitOfWork unitOfWork):base(unitOfWork)
         {
             this._repository = repository;
         }

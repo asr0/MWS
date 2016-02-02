@@ -7,16 +7,16 @@ using MWS.Dominio.Entidades;
 
 namespace MWS.Dominio.Services
 {
-    internal interface IProdutoApplicationService
+    public  interface IProdutoApplicationService
     {
         List<Produto> GetAll();
-        List<Produto> GetAll(int skip, int take);
+        List<Produto> GetInPadding(int skip, int take);
         List<Produto> GetProdutosEmEstoque();
         List<Produto> GetProdutosForaDeEstoque();
         Produto Get(int id);
-        void Create(Produto produto);
-        void Update(Produto produto);
-        void Delete(Produto produto);
-        void Delete(int id);
+        Produto Create(Produto produto);
+        Produto Update(Produto produto);
+        Produto Delete(Produto produto);
+        Produto Delete(int id);
     }
 }

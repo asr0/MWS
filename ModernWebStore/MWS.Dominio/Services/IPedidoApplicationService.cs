@@ -7,7 +7,7 @@ using MWS.Dominio.Entidades;
 
 namespace MWS.Dominio.Services
 {
-    internal interface IPedidoApplicationService
+    public  interface IPedidoApplicationService
     {
         List<Pedido> GetAllPorUsuario(string email, int skip, int take);
         List<Pedido> GetAllPorUsuario(string email);
@@ -17,7 +17,7 @@ namespace MWS.Dominio.Services
         List<Pedido> GetCancelados(string email);
         Pedido GetDetalhes(int id, string email);
         Pedido GetHeader(int id, string email);
-        void Create(Pedido pedido, string email);
+        Pedido Create(Pedido pedido, string email);
         void Pagar(int id, string email);
         void Entregar(int id, string email);
         void Cancelar(int id, string email);
