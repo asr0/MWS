@@ -1,23 +1,23 @@
-﻿using System;
-using System.CodeDom;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
 using MWS.Dominio.Repository;
 using MWS.Dominio.Services;
 using MWS.Infraestrutura.ORM;
 
+#endregion
+
 namespace MWS.Aplicacao
 {
-  public   class PedidoApplicationService: ApplicationServiceBase , IPedidoApplicationService
+    public class PedidoApplicationService : ApplicationServiceBase, IPedidoApplicationService
     {
-        private IPedidoRepository _pedidoRepository;
-      private IUsuarioRepository _usuarioRepository;
-      private IProdutoRepository _produtoRepository;
+        private readonly IPedidoRepository _pedidoRepository;
+        private readonly IProdutoRepository _produtoRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public PedidoApplicationService(IPedidoRepository pedidoRepository, IUsuarioRepository usuarioRepository, IProdutoRepository produtoRepository, IUnitOfWork unitOfWork):base(unitOfWork)
+        public PedidoApplicationService(IPedidoRepository pedidoRepository, IUsuarioRepository usuarioRepository,
+            IProdutoRepository produtoRepository, IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             _pedidoRepository = pedidoRepository;
             _produtoRepository = produtoRepository;
@@ -28,6 +28,7 @@ namespace MWS.Aplicacao
         {
             return _pedidoRepository.GetAllPorUsuario(email, skip, take);
         }
+
         public List<Pedido> GetAllPorUsuario(string email)
         {
             return _pedidoRepository.GetAllPorUsuario(email);
@@ -70,12 +71,12 @@ namespace MWS.Aplicacao
             _pedidoRepository.Update(pedido);
         }
 
-      public void Pagar(int id, string email)
-      {
-          var pedido = _pedidoRepository.GetHeader(id, email);
+        public void Pagar(int id, string email)
+        {
+            var pedido = _pedidoRepository.GetHeader(id, email);
             pedido.MarcarComoPago();
             _pedidoRepository.Update(pedido);
-      }
+        }
 
         public void Entregar(int id, string email)
         {
@@ -84,32 +85,25 @@ namespace MWS.Aplicacao
             _pedidoRepository.Update(pedido);
         }
 
-
-
         public Pedido Create(Pedido pedido, string email)
-      {
-          var usuario = _usuarioRepository.GetByEmail(email);
-          var itensPedido = new List<ItemPedido>();
-          foreach (var item in pedido.ItensPedido)
-          {
-              var itemPedido = new ItemPedido();
-              var produto = _produtoRepository.Get(item.Produto.Id);
-              itemPedido.AdicionarProduto(produto,item.Quantidade,item.Preco);
-              itensPedido.Add(itemPedido);
-          }
+        {
+            var usuario = _usuarioRepository.GetByEmail(email);
+            var itensPedido = new List<ItemPedido>();
+            foreach (var item in pedido.ItensPedido)
+            {
+                var itemPedido = new ItemPedido();
+                var produto = _produtoRepository.Get(item.Produto.Id);
+                itemPedido.AdicionarProduto(produto, item.Quantidade, item.Preco);
+                itensPedido.Add(itemPedido);
+            }
 
-          var pedidoAux = new Pedido(itensPedido, usuario.Id);
-          pedidoAux.Registrar();
+            var pedidoAux = new Pedido(itensPedido, usuario.Id);
+            pedidoAux.Registrar();
 
-          if (Commit())
-              return pedido;
+            if (Commit())
+                return pedido;
 
-          return null;
-      }
-
-
-
-
-
+            return null;
+        }
     }
 }
