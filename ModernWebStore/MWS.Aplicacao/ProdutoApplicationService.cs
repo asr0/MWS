@@ -11,7 +11,7 @@ using MWS.Infraestrutura.Repositorios;
 
 namespace MWS.Aplicacao
 {
-    class ProdutoApplicationService : ApplicationServiceBase, IProdutoApplicationService
+  public   class ProdutoApplicationService : ApplicationServiceBase, IProdutoApplicationService
     {
         private IProdutoRepository _repository;
 

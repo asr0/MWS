@@ -10,7 +10,7 @@ using MWS.Infraestrutura.ORM.DataContexts;
 
 namespace MWS.Infraestrutura.Repositorios
 {
-    internal class UsuarioRepository : IUsuarioRepository
+    public  class UsuarioRepository : IUsuarioRepository
     {
         private readonly StoreDataContext _context;
 

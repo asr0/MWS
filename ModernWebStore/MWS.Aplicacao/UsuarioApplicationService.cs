@@ -10,7 +10,7 @@ using MWS.Infraestrutura.ORM;
 
 namespace MWS.Aplicacao
 {
-    class UsuarioApplicationService : ApplicationServiceBase, IUsuarioApplicationService
+   public  class UsuarioApplicationService : ApplicationServiceBase, IUsuarioApplicationService
     {
         private IUsuarioRepository _repository;
 
