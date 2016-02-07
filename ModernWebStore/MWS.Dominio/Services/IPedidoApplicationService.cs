@@ -7,7 +7,7 @@ using MWS.Dominio.Entidades;
 
 namespace MWS.Dominio.Services
 {
-    public  interface IPedidoApplicationService
+    public interface IPedidoApplicationService
     {
         List<Pedido> GetAllPorUsuario(string email, int skip, int take);
         List<Pedido> GetAllPorUsuario(string email);

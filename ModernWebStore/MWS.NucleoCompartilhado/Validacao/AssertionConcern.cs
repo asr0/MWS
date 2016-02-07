@@ -11,7 +11,7 @@ using MWS.NucleoCompartilhado.Eventos.Contratos;
 namespace MWS.NucleoCompartilhado.Validacao
 {
     public static class AssertionConcern
-    {
+    {        
         public static bool IsSatisfiedBy(params NotificacaoDominio[] validations)
         {
             var notificationsNotNull = validations.Where(validation => validation != null);

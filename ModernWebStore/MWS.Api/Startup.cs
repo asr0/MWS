@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿#region
+
 using System.Web.Http;
-using System.Web;
-using System.Web.Configuration;
+using Microsoft.Owin.Cors;
 using Microsoft.Practices.Unity;
+using MWS.Api.Helpers;
+using MWS.CrossCutting;
+using MWS.NucleoCompartilhado.Eventos.Contratos;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Owin;
+
+#endregion
 
 namespace MWS.Api
 {
@@ -15,16 +18,12 @@ namespace MWS.Api
     {
         public void Configuration(IAppBuilder app)
         {
-            HttpConfiguration config = new HttpConfiguration();
+            var config = new HttpConfiguration();
             var container = new UnityContainer();
-
-            //ConfigureDependencyInjection(config, container);
-
+            ConfigureDependencyInjection(config, container);
             ConfigureWebApi(config);
-
             //ConfigureOAuth(app, container.Resolve<IUserApplicationService>());
-
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
         }
 
@@ -37,13 +36,18 @@ namespace MWS.Api
             jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
             config.MapHttpAttributeRoutes();
-
             config.Routes.MapHttpRoute(
-                name:"DefaultApi",
-                routeTemplate:"api/{controller}/{id}",
-                defaults:new  { id = RouteParameter.Optional}
+                "DefaultApi",
+                "api/{controller}/{id}",
+                new {id = RouteParameter.Optional}
                 );
         }
 
+        public static void ConfigureDependencyInjection(HttpConfiguration config, UnityContainer container)
+        {
+            DependencyRegister.Register(container);
+            config.DependencyResolver = new UnityResolverHelper(container);
+            EventoDominio.Container = new DomainEventsContainer(config.DependencyResolver);
+        }
     }
 }

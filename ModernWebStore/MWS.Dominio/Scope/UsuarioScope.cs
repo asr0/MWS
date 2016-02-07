@@ -18,6 +18,7 @@ namespace MWS.Dominio.Scope
                     AssertionConcern.AssertEmailIsValid(usuario.Email, Erros.EmailInvalido),
                     AssertionConcern.AssertNotEmpty(usuario.Password, Erros.SenhaVazio)
                 );
+            
         }
 
         public static bool AutenticarUsuarioValido(this Usuario usuario, string email, string senhaEncriptada)

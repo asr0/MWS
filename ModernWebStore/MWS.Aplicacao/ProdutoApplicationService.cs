@@ -1,29 +1,28 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
 using MWS.Dominio.Repository;
 using MWS.Dominio.Services;
 using MWS.Infraestrutura.ORM;
-using MWS.Infraestrutura.Repositorios;
+
+#endregion
 
 namespace MWS.Aplicacao
 {
-  public   class ProdutoApplicationService : ApplicationServiceBase, IProdutoApplicationService
+    public class ProdutoApplicationService : ApplicationServiceBase, IProdutoApplicationService
     {
-        private IProdutoRepository _repository;
+        private readonly IProdutoRepository _repository;
 
-        public ProdutoApplicationService(IProdutoRepository repository, IUnitOfWork unitOfwork):base(unitOfwork)
+        public ProdutoApplicationService(IProdutoRepository repository, IUnitOfWork unitOfwork) : base(unitOfwork)
         {
-            this._repository = repository;
+            _repository = repository;
         }
 
-        public Produto Create( Produto produto)
+        public Produto Create(Produto produto)
         {
             produto.RegistrarProduto();
-            this._repository.Create(produto);
+            _repository.Create(produto);
 
             return (Commit()) ? produto : null;
         }
@@ -31,15 +30,14 @@ namespace MWS.Aplicacao
         public Produto Update(Produto produto)
         {
             produto.RegistrarProduto();
-            this._repository.Update(produto);
+            _repository.Update(produto);
 
             return (Commit()) ? produto : null;
         }
 
         public Produto Delete(Produto produto)
         {
-            
-            _repository.Delete( _repository.Get(produto.Id) );
+            _repository.Delete(_repository.Get(produto.Id));
             return (Commit()) ? produto : null;
         }
 
@@ -50,20 +48,19 @@ namespace MWS.Aplicacao
             return (Commit()) ? prod : null;
         }
 
-       public  List<Produto> GetProdutosForaDeEstoque()
+        public List<Produto> GetProdutosForaDeEstoque()
         {
             return _repository.GetProdutosForaDeEstoque();
         }
-
 
         public List<Produto> GetProdutosEmEstoque()
         {
             return _repository.GetProdutosEmEstoque();
         }
 
-      public   List<Produto> GetInPadding(int skip, int take)
+        public List<Produto> GetInPadding(int skip, int take)
         {
-            return  _repository.GetInPadding(skip, take);
+            return _repository.GetInPadding(skip, take);
         }
 
         public List<Produto> GetAll()

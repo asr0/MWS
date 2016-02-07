@@ -7,7 +7,7 @@ using MWS.Dominio.Entidades;
 
 namespace MWS.Dominio.Services
 {
-    public  interface IProdutoApplicationService
+    public interface IProdutoApplicationService
     {
         List<Produto> GetAll();
         List<Produto> GetInPadding(int skip, int take);

@@ -1,23 +1,24 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MWS.Dominio.Entidades;
 using MWS.Dominio.Repository;
 using MWS.Dominio.Services;
 using MWS.Infraestrutura.ORM;
 
+#endregion
+
 namespace MWS.Aplicacao
 {
     public class CategoriaApplicationService : ApplicationServiceBase, ICategoriaApplicationService
     {
-        private ICategoriaRepository _repository;
+        private readonly ICategoriaRepository _repository;
 
         public CategoriaApplicationService(ICategoriaRepository repository, IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            this._repository = repository;
+            _repository = repository;
         }
+
         public Categoria Create(Categoria categoria)
         {
             categoria.Register();
@@ -49,12 +50,10 @@ namespace MWS.Aplicacao
             _repository.Delete(categoria);
         }
 
-
         public void Delete(int id)
         {
             _repository.Delete(id);
         }
-
 
         public Categoria Update(Categoria cat)
         {
@@ -67,8 +66,5 @@ namespace MWS.Aplicacao
 
             return null;
         }
-
-
-
     }
 }

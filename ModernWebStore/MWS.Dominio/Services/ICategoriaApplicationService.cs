@@ -17,5 +17,4 @@ namespace MWS.Dominio.Services
         void Delete(Categoria categoria);
         void Delete(int id);
     }
-
 }

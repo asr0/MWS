@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region
+
 using MWS.Dominio.Entidades;
 using MWS.Dominio.Repository;
 using MWS.Dominio.Services;
 using MWS.Infraestrutura.ORM;
 
+#endregion
+
 namespace MWS.Aplicacao
 {
-   public  class UsuarioApplicationService : ApplicationServiceBase, IUsuarioApplicationService
+    public class UsuarioApplicationService : ApplicationServiceBase, IUsuarioApplicationService
     {
-        private IUsuarioRepository _repository;
+        private readonly IUsuarioRepository _repository;
 
-        public UsuarioApplicationService(IUsuarioRepository repository, IUnitOfWork unitOfWork):base(unitOfWork)
+        public UsuarioApplicationService(IUsuarioRepository repository, IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            this._repository = repository;
+            _repository = repository;
         }
 
         public Usuario Registrar(Usuario usuario)
@@ -39,6 +38,5 @@ namespace MWS.Aplicacao
         {
             return _repository.GetByEmail(email);
         }
-
     }
-} 
+}
