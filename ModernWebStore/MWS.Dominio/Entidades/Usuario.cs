@@ -10,6 +10,10 @@ namespace MWS.Dominio.Entidades
 {
     public class Usuario
     {
+        protected Usuario()
+        {
+
+        }
         public Usuario(string email, string password, bool admin)
         {
             Email = email;
@@ -25,6 +29,7 @@ namespace MWS.Dominio.Entidades
         public void Registrar()
         {
             this.RegistrarUsuarioValido();
+            
         }
 
         public void ConcederAdministrador()

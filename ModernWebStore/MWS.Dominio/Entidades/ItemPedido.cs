@@ -8,6 +8,7 @@ namespace MWS.Dominio.Entidades
 {
     public class ItemPedido
     {
+        
         public int Id { get; private set; }
         public int Quantidade { get; private set; }
         public decimal Preco { get; private set; }

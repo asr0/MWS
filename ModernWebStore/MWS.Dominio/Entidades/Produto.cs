@@ -9,8 +9,23 @@ namespace MWS.Dominio.Entidades
 {
     public class Produto
     {
+        protected Produto()
+        {
+        }
+
         public Produto(string titulo, string descricao, decimal preco, int quantidade, int categoriaId)
         {
+            Titulo = titulo;
+            Descricao = descricao;
+            Preco = preco;
+            Quantidade = quantidade;
+            CategoriaId = categoriaId;
+        }
+
+
+        public Produto(int id,string titulo, string descricao, decimal preco, int quantidade, int categoriaId)
+        {
+            Id = id;
             Titulo = titulo;
             Descricao = descricao;
             Preco = preco;

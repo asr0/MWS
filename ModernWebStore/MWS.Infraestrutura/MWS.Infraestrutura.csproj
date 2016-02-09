@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201602070046511_InitialCreate.cs" />
+    <Compile Include="Migrations\201602070046511_InitialCreate.Designer.cs">
+      <DependentUpon>201602070046511_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ORM\DataContexts\StoreDataContext.cs" />
     <Compile Include="ORM\IUnitOfWork.cs" />
     <Compile Include="ORM\Map\CategoriaMap.cs" />
@@ -72,6 +77,11 @@
       <Project>{0b1de2ec-cda3-4888-a840-fee4ee87e6b8}</Project>
       <Name>MWS.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602070046511_InitialCreate.resx">
+      <DependentUpon>201602070046511_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

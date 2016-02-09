@@ -9,6 +9,12 @@ using MWS.NucleoCompartilhado.Eventos.Contratos;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Owin;
+using Microsoft.Owin.Security.OAuth;
+using MWS.Dominio.Services;
+using Microsoft.Owin;
+using System;
+using MWS.Api.Security;
+
 
 #endregion
 
@@ -22,10 +28,11 @@ namespace MWS.Api
             var container = new UnityContainer();
             ConfigureDependencyInjection(config, container);
             ConfigureWebApi(config);
-            //ConfigureOAuth(app, container.Resolve<IUserApplicationService>());
+            ConfigureOAuth(app, container.Resolve<IUsuarioApplicationService>());
             app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
         }
+
 
         public static void ConfigureWebApi(HttpConfiguration config)
         {
@@ -49,5 +56,21 @@ namespace MWS.Api
             config.DependencyResolver = new UnityResolverHelper(container);
             EventoDominio.Container = new DomainEventsContainer(config.DependencyResolver);
         }
+
+
+        public void ConfigureOAuth(IAppBuilder app, IUsuarioApplicationService usuarioService) {
+
+            OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions
+            {
+                AllowInsecureHttp = true,
+                TokenEndpointPath = new PathString("/api/security/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(2),
+                Provider = new SimpleAuthorizationServerProvider(usuarioService)
+            };
+
+            app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+        }
+
     }
 }

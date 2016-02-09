@@ -97,7 +97,7 @@ namespace MWS.Aplicacao
                 itensPedido.Add(itemPedido);
             }
 
-            var pedidoAux = new Pedido(itensPedido, usuario.Id);
+            var pedidoAux = new Pedido(itensPedido, usuario.Email);
             pedidoAux.Registrar();
 
             if (Commit())

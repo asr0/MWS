@@ -12,16 +12,23 @@ namespace MWS.Dominio.Entidades
 {
     public class Pedido
     {
+
+        protected Pedido()
+        {
+
+        }
+
         private IList<ItemPedido> _itensPedido;
 
-        public Pedido(IList<ItemPedido> itensPedido, int usuarioId)
+        public Pedido(IList<ItemPedido> itensPedido, string usuarioEmail)
         {
             Data = DateTime.Now;
             _itensPedido = new List<ItemPedido>();
             itensPedido.ToList().ForEach(x => AdicionarItem(x));
-            UsuarioId = usuarioId;
+            UsuarioEmail = usuarioEmail;
             Status = EPedidoStatus.Criado;
         }
+            
 
         public int Id { get; private set; }
         public DateTime Data { get; private set; }
@@ -33,7 +40,7 @@ namespace MWS.Dominio.Entidades
         }
 
         public Usuario Usuario { get; private set; }
-        public int UsuarioId { get; }
+        public string UsuarioEmail { get; }
 
         public Decimal Total
         {
@@ -62,7 +69,7 @@ namespace MWS.Dominio.Entidades
 
         public void Registrar()
         {
-            if (!this.RegistrarPedidoValido(UsuarioId))
+            if (!this.RegistrarPedidoValido(UsuarioEmail))
                 return;
         }
 

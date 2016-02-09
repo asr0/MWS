@@ -45,14 +45,24 @@ namespace MWS.Aplicacao
             return _repository.Get(id);
         }
 
-        public void Delete(Categoria categoria)
+        public Categoria Delete(Categoria categoria)
         {
             _repository.Delete(categoria);
+            if (Commit())
+                return categoria;
+
+            return null;
         }
 
-        public void Delete(int id)
+        public Categoria Delete(int id)
         {
+            var categoria = _repository.Get(id);
             _repository.Delete(id);
+
+            if (Commit())
+                return categoria;
+
+            return null;
         }
 
         public Categoria Update(Categoria cat)

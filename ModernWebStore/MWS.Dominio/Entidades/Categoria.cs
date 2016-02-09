@@ -9,8 +9,18 @@ namespace MWS.Dominio.Entidades
 {
     public class Categoria
     {
+        protected Categoria()
+        {
+
+        }
         public Categoria(String titulo)
         {
+            Titulo = titulo;
+        }
+
+        public Categoria(int id, String titulo)
+        {
+            Id = id;
             Titulo = titulo;
         }
 

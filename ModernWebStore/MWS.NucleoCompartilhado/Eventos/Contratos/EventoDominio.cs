@@ -17,6 +17,8 @@ namespace MWS.NucleoCompartilhado.Eventos.Contratos
                 if (Container != null)
                 {
                     var obj = Container.GetService(typeof (IHandler<T>));
+                    ((IHandler<T>)obj).Handle(args);
+                    
                 }
             }
             catch (Exception)

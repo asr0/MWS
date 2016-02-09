@@ -14,7 +14,7 @@ namespace MWS.Dominio.Services
         Categoria Get(int id);
         Categoria Create(Categoria categoria);
         Categoria Update(Categoria categoria);
-        void Delete(Categoria categoria);
-        void Delete(int id);
+        Categoria Delete(Categoria categoria);
+        Categoria Delete(int id);
     }
 }

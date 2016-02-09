@@ -23,7 +23,7 @@ namespace MWS.Api.Controllers
         }
 
         [HttpPost]
-        [Route("usuario")]
+        [Route("api/usuarios")]
         public Task<HttpResponseMessage> Post([FromBody] dynamic body)
         {
             var usuario = new Usuario((string)body.email, (string)body.password, (bool)body.isAdmin);
@@ -32,13 +32,13 @@ namespace MWS.Api.Controllers
         }
 
         [HttpGet]
-        [Route("usuario")]
-        public IEnumerable<string> Get()
+        [Route("api/usuarios")]
+        [Authorize(Roles ="admin")]
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            return  User.Identity.Name;
         }
-
-
+        
 
 
     }

@@ -17,7 +17,7 @@ namespace Dominio.Tests
             var categoria = new Categoria("Placa mãe");
             var titulo = categoria.Titulo;
             var produto = new Produto("Titulo", "Descricao", 12.50m, 12, 1);
-            var pedido = new Pedido(new List<ItemPedido>(), 1);
+            var pedido = new Pedido(new List<ItemPedido>(), "sander@mail.com");
         }
     }
 }

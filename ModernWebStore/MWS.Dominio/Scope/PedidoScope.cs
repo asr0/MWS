@@ -10,11 +10,13 @@ namespace MWS.Dominio.Scope
 {
     public static class PedidoScope
     {
-        public static bool RegistrarPedidoValido(this Pedido pedido, int usuarioId)
+        public static bool RegistrarPedidoValido(this Pedido pedido, string usuarioEmail)
         {
             return AssertionConcern.IsSatisfiedBy(
                 AssertionConcern.AssertIsGreaterThan(pedido.ItensPedido.Count(), 0, "Nenhum item foi adicionado"),
-                AssertionConcern.AssertIsGreaterThan(usuarioId, 0, "O pedido deve ter um usuario.")
+                AssertionConcern.AssertNotEmpty(usuarioEmail,  "O pedido deve ter um usuario."),
+                AssertionConcern.AssertEmailIsValid(usuarioEmail, "O pedido deve ter um usuario com email Válido")
+                
                 );
         }
     }

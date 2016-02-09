@@ -14,7 +14,9 @@ namespace MWS.NucleoCompartilhado.Validacao
     {        
         public static bool IsSatisfiedBy(params NotificacaoDominio[] validations)
         {
+            var contsnt = validations;
             var notificationsNotNull = validations.Where(validation => validation != null);
+
             NotifyAll(notificationsNotNull);
 
             return notificationsNotNull.Count().Equals(0);
@@ -22,8 +24,12 @@ namespace MWS.NucleoCompartilhado.Validacao
 
         private static void NotifyAll(IEnumerable<NotificacaoDominio> notifications)
         {
-            notifications.ToList().ForEach(validation => { EventoDominio.Raise(validation); });
+            notifications.ToList().ForEach(validation =>
+            {
+                EventoDominio.Raise<NotificacaoDominio>(validation);
+            });
         }
+
 
         public static NotificacaoDominio AssertLength(string stringValue, int minimum, int maximum, string message)
         {
