@@ -1,0 +1,15 @@
+{
+  "name": "admin",
+  "description": "Projeto Front End Desktop Admin",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -35,7 +35,7 @@ namespace MWS.Dominio.Entidades
 
         public int Id { get; private set; }
         public String Titulo { get; private set; }
-        public String Descricao { get; private set; }
+        public string Descricao { get; private set; }
         public Decimal Preco { get; private set; }
         public int Quantidade { get; private set; }
         public int CategoriaId { get; private set; }
