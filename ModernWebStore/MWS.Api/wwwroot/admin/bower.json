@@ -4,12 +4,19 @@
   "main": "",
   "moduleType": [],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/asr0/MWS",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "version": "0.0.0",
+  "authors": [
+    "Alex Sander Rodrigues Oliveira <sander.asro@outlook.com>"
+  ],
+  "dependencies": {
+    "bootswatch": "~3.3.6+1"
+  }
 }
