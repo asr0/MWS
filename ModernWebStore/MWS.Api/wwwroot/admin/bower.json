@@ -17,6 +17,11 @@
     "Alex Sander Rodrigues Oliveira <sander.asro@outlook.com>"
   ],
   "dependencies": {
-    "bootswatch": "~3.3.6+1"
+    "bootswatch": "~3.3.6+1",
+    "animate.css": "~3.5.1",
+    "font-awesome": "~4.5.0",
+    "toastr": "~2.1.2",
+    "angular": "~1.5.0",
+    "angular-route": "~1.5.0"
   }
 }
