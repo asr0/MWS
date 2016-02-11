@@ -22,8 +22,9 @@
 </head>
 <body>
     <div ng-include="'pages/shared/headbar.html'"></div>
+    <div class="container" ng-view>
+    </div>
     
-  
   
     <script src="../../bower_components/jquery/dist/jquery.js"></script>
     <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -31,6 +32,8 @@
     <script src="../../bower_components/angular/angular.js"></script>
     <script src="../../bower_components/angular-route/angular-route.js"></script>
      <script src="../../app/app.js"></script>
+     <script src="../../app/routes.js"></script>
+     <script src="../../app/controllers/home/homeController.js"></script>
 
 </body>
 </html>
